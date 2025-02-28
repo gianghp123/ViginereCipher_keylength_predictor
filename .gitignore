@@ -1,0 +1,4 @@
+__pycache__
+test_plain_texts
+train_plain_texts
+*.csv
