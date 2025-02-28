@@ -22,7 +22,7 @@ The paper combines traditional cryptanalysis techniques such as the **Index of C
 - **Δ-7**: Difference between the 7 most and 7 least common letters.
 
 ## 4. Model Implementation
-The scaled dataset is published at [!dataset](https://huggingface.co/datasets/gianghp/ViginereCipher_features)
+The scaled dataset is published on hugging face at [this link](https://huggingface.co/datasets/gianghp/ViginereCipher_features)
 ### 4.1 Data Preparation
 Training data was collected from multiple text files (Kaggle) and preprocessed:
 - Removing numbers, punctuation, and extra whitespace while converting all characters to lowercase.
