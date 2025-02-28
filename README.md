@@ -10,8 +10,8 @@ The paper combines traditional cryptanalysis techniques such as the **Index of C
 ### Important Features Used:
 - **Length of ciphertext (N)**: The length of the encrypted text.
 - **Has repeated sequences**: Indicates the presence of repeated trigrams or quadgrams.
--**Index of Coincidence (IC) of the ciphertext**:  
-  $\displaystyle IC(M) = \frac{\sum_{i=1}^{26} f_i (f_i - 1)}{N (N - 1)} $ 
+- **Index of Coincidence (IC) of the ciphertext**:  
+  $\displaystyle IC(M) = \frac{\sum_{i=1}^{26} f_i (f_i - 1)}{N (N - 1)} $/ 
   where $\( f_i \)$ represents the frequency of the $\( i \)$-th letter.
 
 - **Index of Coincidence of English text**: Fixed at **0.066**.
