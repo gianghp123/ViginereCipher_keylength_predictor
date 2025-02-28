@@ -1,6 +1,5 @@
 
 # Predicting Vigenère Cipher Key Length Using Deep Learning
-
 ## 1. Introduction
 This project is inspired by the research paper *"An Artificial Neural Network Approach to Finding the Key Length of the Vigenère Cipher"* by Christian Millichap and Yeeka Yau. The goal is to implement a Neural Network utilizing the most effective features extracted from encrypted text to predict the key length of the Vigenère cipher.
 
@@ -11,16 +10,25 @@ The paper combines traditional cryptanalysis techniques such as the **Index of C
 ### Important Features Used:
 - **Length of ciphertext (N)**: The length of the encrypted text.
 - **Has repeated sequences**: Indicates the presence of repeated trigrams or quadgrams.
-- **Index of Coincidence (IC) of the ciphertext**:
-  \[ IC(M) = \frac{\sum_{i=1}^{26} f_i (f_i - 1)}{N(N-1)} \]
-  where \( f_i \) is the frequency of letter \( i \).
-- **Index of Coincidence of English text**: Fixed at 0.066.
-- **Twist⁺ indices \( T^+(M,m) \)** for \( 2 \leq m \leq 25 \)
-- **Twist⁺⁺ indices \( T^{++}(M,m) \)** for \( 2 \leq m \leq 25 \)
-- **Average IC for cosets \( m \) where \( 3 \leq m \leq 25 \)**
-- **Hi-7**: Sum of the percentage frequency of the 7 most common letters.
-- **Δ-7**: Difference between the 7 most and 7 least common letters.
+-**Index of Coincidence (IC) of the ciphertext**:  
+  $\displaystyle IC(M) = \frac{\sum_{i=1}^{26} f_i (f_i - 1)}{N (N - 1)} $ 
+  where $\( f_i \)$ represents the frequency of the $\( i \)$-th letter.
 
+- **Index of Coincidence of English text**: Fixed at **0.066**.
+
+- **Twist⁺ indices**:  
+     $\displaystyle T^+ (M,m) = T(M,m) - \frac{1}{m-1} \sum_{\mu=1}^{m-1} T(M, \mu) $\
+  where:  
+  $\displaystyle T(M, n) = \frac{100}{m} \sum_{j=1}^{m} \diamond C_j $  
+
+- **Twist⁺⁺ indices**:  
+  $\displaystyle T^{++} (M,m) = T(M,m) - \frac{1}{2} (T(M,m-1) + T(M,m+1)) $  
+
+- **Average IC for cosets**: The mean IC when dividing the ciphertext into $\( m \)$ groups, where $\( 3 \leq m \leq 25 \)$.
+
+- **Hi-7**: Sum of the percentage frequency of the 7 most common letters.
+
+- **Δ-7**: Difference between the 7 most and 7 least common letters.
 ## 4. Model Implementation
 The scaled dataset is published on hugging face at [this link](https://huggingface.co/datasets/gianghp/ViginereCipher_features)
 ### 4.1 Data Preparation
@@ -86,6 +94,7 @@ Designed for sequence-based feature learning. Compared to FNN, it uses **convolu
 - **Only CNN results are presented**, as it achieved the highest accuracy.
 
 ## 5. Results & Evaluation
+![result](https://github.com/gianghp123/ViginereCipher_keylength_predictor/edit/main/train_records.png)
 - The final CNN model achieved **98.13% accuracy** on validation.
 - **Significant accuracy improvements** were observed due to convolutional layers learning sequential dependencies in features, effectively capturing relationships between twist⁺ and twist⁺⁺ indices.
 - Compared to the results reported in the referenced paper, which achieved **an accuracy of 89.2% on their best model**, the CNN implementation significantly outperformed it, achieving a **9.0% higher validation accuracy**. Additionally, our model demonstrated improved generalization when handling shorter ciphertexts, maintaining strong predictive performance across varying text lengths.
