@@ -94,7 +94,7 @@ Designed for sequence-based feature learning. Compared to FNN, it uses **convolu
 - **Only CNN results are presented**, as it achieved the highest accuracy.
 
 ## 5. Results & Evaluation
-![result](https://github.com/gianghp123/ViginereCipher_keylength_predictor/edit/main/train_records.png)
+![result](./train_records.png)
 - The final CNN model achieved **98.13% accuracy** on validation.
 - **Significant accuracy improvements** were observed due to convolutional layers learning sequential dependencies in features, effectively capturing relationships between twist⁺ and twist⁺⁺ indices.
 - Compared to the results reported in the referenced paper, which achieved **an accuracy of 89.2% on their best model**, the CNN implementation significantly outperformed it, achieving a **9.0% higher validation accuracy**. Additionally, our model demonstrated improved generalization when handling shorter ciphertexts, maintaining strong predictive performance across varying text lengths.
